@@ -38,7 +38,7 @@
 				</tr>
 				<tr th:each="vo:${list}">
 					<td class="text-center" width="10%" th:text="${vo.id}"></td>
-					<td><a th:href="@{/board/detail(id=${vo.id})}" th:text="${vo.subject}"></a></td>
+					<td><a th:href="@{/eboard/detail(id=${vo.id})}" th:text="${vo.subject}"></a></td>
 					<td class="text-center" width="15%" th:text="${vo.name}"></td>
 					<td class="text-center" width="20%" th:text="${vo.regdate}"></td>
 					<td class="text-center" width="10%" th:text="${vo.hit}"></td>

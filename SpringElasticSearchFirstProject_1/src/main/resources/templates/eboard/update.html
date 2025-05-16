@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.container{
+	margin-top: 50px;
+}
+.row{
+	margin: 0px auto;
+	width: 800px;
+}
+</style>
+</head>
+<body>
+	<!-- 
+		react => value={}
+		vue	=> :value=""
+		thymelaf => th:value=""
+		react / react-query / redux / recoil
+		
+	 -->
+	<div class="container">
+		<div class="row">
+			<h3 class="text-center">수정하기</h3>
+			<form method="post" action="/eboard/update_ok">
+				<table class="table">
+					<tr>
+						<th class="text-center" width="20%">이름</th>
+						<td width="80%">
+							<input type="text" name="name" size="15" class="input-sm" required th:value="${vo.name}">
+							<input type="hidden" name="id" th:value="${vo.id}">
+						</td>
+					</tr>
+					<tr>
+						<th class="text-center" width="20%">제목</th>
+						<td width="80%">
+							<input type="text" name="subject" size="50" class="input-sm" required th:value="${vo.subject}">
+						</td>
+					</tr>
+					<tr>
+						<th class="text-center" width="20%">내용</th>
+						<td width="80%">
+							<textarea rows="10" cols="50" name="content" required th:text="${vo.content}"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<th class="text-center" width="20%">비밀번호</th>
+						<td width="80%">
+							<input type="password" name="pwd" size="10" class="input-sm" required>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" class="text-center">
+							<input type="submit" value="수정" class="btn-sm btn-info">
+							<input type="button" value="취소" class="btn-sm btn-warning" onclick="javascript:history.back()">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
