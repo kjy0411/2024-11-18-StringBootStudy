@@ -11,4 +11,11 @@ public interface BusanInfoRepository extends ElasticsearchRepository<BusanInfoEn
 	// WHERE (조건문) X => 규칙에 따라 직접 생성 => findByNo... => 메소드 패턴
 	// < : lessthen, > : greaterthen, <= : lessthenEqual, >= greaterthenEqual
 	public List<BusanInfoEntity> findByCno(@Param("cno") Integer cno);
+	public List<BusanInfoEntity> findByTitleContaining(@Param("title") String title);
+	/*  
+	 * 	LIKE
+	 *  A%	findByTitleStartsWith
+	 *  %A	findByTitleEndsWith
+	 *  %A%	findByTitleContaining
+	 */
 }
