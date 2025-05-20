@@ -19,6 +19,31 @@ p{
 }
 </style>
 </head>
+<!-- 
+	1. 반복문
+		th:each="받는 변수:Collection/배열"
+				vo:${list}
+					------ EL
+	2. 조건문
+		th:if="${조건}" th:else=""
+	
+	3. 출력
+		[[${}]] <tag th:text="${}" th:value="${}">
+		
+	4. for
+		${#numbers.sequence(1,10)} => for(int i=1;i<=10;i++)
+		
+	5. link
+		@{URL(?뒤에 들어가는 변수)}
+	
+	=> JSP없이 HTML을 이용해서 출력 => JSP보다 속도가 늦다
+	=> Spring-Framework : 서버/클라이언트
+	=> Spring-Boot : 서버 / Front를 별도로 만들어서 처리
+	   ----------- Java / Kotlin
+	   ----------- Java 21버전
+	   ----------- 웹은 Spring - Framework와 동일
+	
+ -->
 <body>
 	<div class="container">
 		<div class="row">

@@ -38,9 +38,7 @@ public class MusicService {
 	public Music getMusicId(String id) {
 		return mRepository.findById(id).orElse(null);
 	}
-	public List<Music> musicFindData(String title){
-		List<Music> list=new ArrayList<Music>();
-		
-		return list;
+	public List<Music> getMusicFindData(String title){
+		return mRepository.findByTitleContaining(title);
 	}
 }

@@ -13,7 +13,10 @@ import com.sist.web.vo.*;
  *  ----------------------- NoSQL 기능 탑재 => 실시간 데이터
  *  장점 => 클러스트 (리눅스 기반)
  */
+import java.util.*;
+import com.sist.web.vo.*;
 @Repository
 public interface MusicRepository extends ElasticsearchRepository<Music, String>{
 	//@Query("{\"query\":{\"match\":{\"title\":\"?0\"}}}")
+	public List<Music> findByTitleContaining(String title);
 }
