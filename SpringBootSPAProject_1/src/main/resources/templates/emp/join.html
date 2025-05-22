@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1" bodercolor=black width=700>
+		<tr>
+			<th>사번</th>
+			<th>이름</th>
+			<th>직위</th>
+			<th>입사일</th>
+			<th>급여</th>
+			<th>부서명</th>
+			<th>근무지</th>
+		</tr>
+		<tr th:each="vo:${list}">
+			<td th:text="${vo.empno}"></td>
+			<td><a th:href="@{/emp/detail(empno=${vo.empno})}">[[${vo.ename}]]</a></td>
+			<td th:text="${vo.job}"></td>
+			<td>[[${vo.hiredate}]]</td>
+			<td>[[${vo.sal}]]</td>
+			<td>[[${vo.dept.dname}]]</td>
+			<td>[[${vo.dept.loc}]]</td>
+		</tr>
+	</table>
+</body>
+</html>
