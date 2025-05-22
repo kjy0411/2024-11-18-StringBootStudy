@@ -30,7 +30,7 @@ p{
 			<c:forEach var="vo" items="${list}">
 				<div class="col-md-3">
 				<div class="thumbnail">
-					<a href="/detail?fno=${vo.fno} }">
+					<a href="/detail?fno=${vo.fno}">
 						<img src="https://www.menupan.com${vo.poster}" style="wid230px;height: 120px">
 						<div class="caption">
 							<p>${vo.name}</p>

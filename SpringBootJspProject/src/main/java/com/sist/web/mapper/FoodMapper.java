@@ -22,4 +22,6 @@ public interface FoodMapper {
    */
 	public List<FoodVO> foodListData(Map map);
 	public int foodTotalPage();
+	//<select id="foodDetailData" resultType="com.sist.web.vo.FoodVO" parameterType="int">
+	public FoodVO foodDetailData(int fno);
 }

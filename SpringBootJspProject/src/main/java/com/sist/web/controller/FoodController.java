@@ -22,6 +22,9 @@ import com.sist.web.service.*;
  *  
  *  => 프로젝트 구현
  *     ---------- 과정 중시 => 산출물, 협업 (문제점 / 해결책)
+ *  => 학습
+ *  	로션 / GIT
+ *  
  */
 @Controller
 public class FoodController {
@@ -52,5 +55,12 @@ public class FoodController {
 	  model.addAttribute("startPage", startPage);
 	  model.addAttribute("endPage", endPage);
 	  return "list";
+  }
+  
+  @GetMapping("/detail")
+  public String food_detail(@RequestParam("fno") int fno,Model model) {
+	  FoodVO vo=fService.foodDetailData(fno);
+	  model.addAttribute("vo",vo);
+	  return "detail";
   }
 }

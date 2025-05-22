@@ -11,4 +11,9 @@
   <select id="foodTotalPage" resultType="int">
     SELECT CEIL(COUNT(*)/12.0) FROM project_food
   </select>
+  <select id="foodDetailData" resultType="com.sist.web.vo.FoodVO" parameterType="int">
+  	SELECT fno,name,poster,address,phone,price,parking,time,score,theme,content,type
+  	FROM project_food 
+  	WHERE fno=#{fno}
+  </select>
 </mapper>
