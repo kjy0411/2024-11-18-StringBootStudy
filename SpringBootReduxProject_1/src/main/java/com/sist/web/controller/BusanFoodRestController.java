@@ -38,4 +38,10 @@ public class BusanFoodRestController {
 		map.put("endPage", endPage);
 		return map;
 	}
+	
+	@GetMapping("/food/detail_react")
+	public BusanFoodEntity food_detail(@RequestParam(name = "fno") int fno) {
+		BusanFoodEntity vo=bDao.findByFno(fno);
+		return vo;
+	}
 }
