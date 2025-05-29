@@ -34,6 +34,6 @@ public class BoardEntity {
 	
 	@PrePersist
 	public void regdate() {
-		this.regdate=LocalDateTime.now().format(DateTimeFormatter.ofPattern(content="yyyy-MM-dd"));
+		this.regdate=LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 	}
 }
