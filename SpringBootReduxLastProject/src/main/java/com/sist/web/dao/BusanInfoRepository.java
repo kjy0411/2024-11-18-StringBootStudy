@@ -30,4 +30,6 @@ public interface BusanInfoRepository extends JpaRepository<BusanInfoEntity, Inte
 	*/
 	// JPA
 	public List<BusanInfoEntity> findByTitleContaining(@Param("title") String title);
+	
+	public BusanInfoEntity findByNo(int no);
 }

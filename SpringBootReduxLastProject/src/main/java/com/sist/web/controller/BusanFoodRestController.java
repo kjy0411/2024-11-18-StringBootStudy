@@ -84,9 +84,29 @@ public class BusanFoodRestController {
 		return map;
 	}
 	@GetMapping("/info/detail_react")
-	public BusanInfoEntity info_detail(@RequestParam("no") int no) {
-		BusanInfoEntity vo=null;
-		return vo;
+	public Map info_detail(@RequestParam("no") int no) {
+		Map map=new HashMap();
+		BusanInfoEntity vo=bService.busanInfoDetailData(no);
+		String addr=vo.getAddress();
+		if(vo.getCno()==2) {
+			addr=addr.substring(addr.indexOf(" ")+1);
+			String addr1=addr.trim();
+			addr1=addr1.substring(0,addr1.indexOf(" "));
+			map.put("addr", addr1);
+		}else {
+			addr=addr.substring(addr.indexOf(" ")+1);
+			String addr1=addr.trim();
+			addr1=addr1.substring(addr1.indexOf(" ")+1);
+			String addr2=addr1.trim();
+			if(addr2.indexOf(" ")!=-1) {
+				addr2=addr2.substring(0,addr2.indexOf(" "));
+				map.put("addr", addr2);
+			}else {
+				map.put("addr", addr2.trim());
+			}
+		}
+		map.put("vo", vo);
+		return map;
 	}
 	
 }
