@@ -52,9 +52,6 @@ public class NovelRestController {
 	
 	@GetMapping("/novel/find_react")
 	public Map novel_find(@RequestParam("fd") String fd,@RequestParam("genre") String genre,@RequestParam("page") int page) {
-		System.out.println(fd);
-		System.out.println(genre);
-		System.out.println(page);
 		Map map=new HashMap();
 		int rowSize=12;
 		int start=(page-1)*rowSize;
@@ -74,5 +71,25 @@ public class NovelRestController {
 		return map;
 	}
 	
+	@GetMapping("/novel/serial_react")
+	public Map novel_serial(@RequestParam("serial") String serial,@RequestParam("page") int page) {
+		Map map=new HashMap();
+		int rowSize=12;
+		int start=(page-1)*rowSize;
+		List<NovelEntity> list=service.novelListBySerial(serial, start);
+		int totalpage=service.novelTotalPageBySerial(serial);
+		
+		final int BLOCK=10;
+		int startPage=((page-1)/BLOCK*BLOCK)+1;
+		int endPage=((page-1)/BLOCK*BLOCK)+BLOCK;
+		if(endPage>totalpage)
+			endPage=totalpage;
+		map.put("list", list);
+		map.put("curpage", page);
+		map.put("totalpage", totalpage);
+		map.put("startPage", startPage);
+		map.put("endPage", endPage);
+		return map;
+	}
 	
 }

@@ -34,4 +34,14 @@ public interface NovelRepository extends JpaRepository<NovelEntity, Integer>{
 			+ "WHERE title LIKE CONCAT('%',:fd,'%') "
 			+ "AND CONCAT(' ',genre,' ') LIKE CONCAT('% ',:genre,'%')",nativeQuery = true)
 	public int novelFindTotalPage(@Param("fd") String fd, @Param("genre") String genre);
+	
+	@Query(value = "SELECT * FROM novel "
+			+ "WHERE serial LIKE CONCAT('%',:serial,'%') "
+			+ "ORDER BY no ASC "
+			+ "LIMIT :start,12",nativeQuery = true)
+	public List<NovelEntity> novelListBySerial(@Param("serial") String serial,@Param("start") Integer start);
+	@Query(value = "SELECT CEIL(COUNT(*)/12.0) FROM novel "
+			+ "WHERE serial LIKE CONCAT('%',:serial,'%')",nativeQuery = true)
+	public int novelTotalPageBySerial(@Param("serial") String serial);
+	
 }

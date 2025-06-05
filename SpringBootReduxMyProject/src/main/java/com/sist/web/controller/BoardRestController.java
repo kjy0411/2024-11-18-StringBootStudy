@@ -38,11 +38,20 @@ public class BoardRestController {
 		int totalpage=(int)(Math.ceil(count/(double)rowSize));
 		String today=new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 		
+		final int BLOCK=10;
+		int startPage=((page-1)/BLOCK*BLOCK)+1;
+		int endPage=((page-1)/BLOCK*BLOCK)+BLOCK;
+		if(endPage>totalpage)
+			endPage=totalpage;
+		System.out.println(map.toString());
+		System.out.println(startPage);
+		System.out.println(endPage);
 		map.put("list", list);
 		map.put("curpage", page);
 		map.put("totalpage", totalpage);
 		map.put("today", today);
-		
+		map.put("startPage", startPage);
+		map.put("endPage", endPage);
 		return map;
 	}
 	@PostMapping("/board/insert_react")

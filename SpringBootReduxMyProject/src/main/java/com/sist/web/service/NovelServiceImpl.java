@@ -43,4 +43,14 @@ public class NovelServiceImpl implements NovelService{
 	public int novelFindTotalPage(String fd, String genre) {
 		return nDao.novelFindTotalPage(fd, genre);
 	}
+
+	@Override
+	public List<NovelEntity> novelListBySerial(String serial, int start) {
+		return nDao.novelListBySerial(serial, start);
+	}
+
+	@Override
+	public int novelTotalPageBySerial(String serial) {
+		return nDao.novelTotalPageBySerial(serial);
+	}
 }
