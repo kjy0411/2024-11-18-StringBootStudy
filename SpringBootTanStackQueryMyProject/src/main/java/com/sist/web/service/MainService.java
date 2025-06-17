@@ -6,4 +6,5 @@ import com.sist.web.vo.*;
 public interface MainService {
 	public int idCount(String id);
 	public Map memberLogin(String id,String pwd);
+	public List<CampListVO> mainCampData();
 }

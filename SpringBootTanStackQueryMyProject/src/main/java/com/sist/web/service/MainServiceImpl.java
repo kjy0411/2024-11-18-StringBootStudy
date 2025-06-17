@@ -10,6 +10,8 @@ import com.sist.web.vo.*;
 public class MainServiceImpl implements MainService{
 	@Autowired
 	private MainRepository mDao;
+	@Autowired
+	private CampRepository cDao;
 
 	@Override
 	public int idCount(String id) {
@@ -34,6 +36,11 @@ public class MainServiceImpl implements MainService{
 			}
 		}
 		return map;
+	}
+
+	@Override
+	public List<CampListVO> mainCampData() {
+		return cDao.mainCampData();
 	}
 	
 	

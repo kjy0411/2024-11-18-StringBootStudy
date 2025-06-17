@@ -14,6 +14,8 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardRepository bDao;
 	@Autowired
+	private CommentRepository cDao;
+	@Autowired
 	private PageNation pn;
 	@Override
 	public Map boardListData(int page) {
@@ -51,6 +53,12 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void boardDelete(int no) {
 		BoardEntity vo=bDao.findByNo(no);
+		// 댓글 삭제
+		List<CommentEntity> list=cDao.findByTypeAndBno(2, no);
+		for(CommentEntity cvo:list) {
+			cDao.delete(cvo);
+		}
+		
 		bDao.delete(vo);
 	}
 	@Override

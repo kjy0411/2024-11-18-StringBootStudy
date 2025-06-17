@@ -12,6 +12,9 @@ import java.util.*;
 import com.sist.web.service.*;
 import com.sist.web.entity.*;
 import com.sist.web.vo.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 @RestController
 @CrossOrigin(origins = "*")
 public class MainRestController {
@@ -28,4 +31,17 @@ public class MainRestController {
 		}
 		return new ResponseEntity<>(map,HttpStatus.OK);
 	}
+	
+	@GetMapping("/main/main")
+	public ResponseEntity<Map> main() {
+		Map map=new HashMap();
+		try {
+			List<CampListVO> list=mService.mainCampData();
+			map.put("list", list);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<>(map,HttpStatus.OK);
+	}
+	
 }

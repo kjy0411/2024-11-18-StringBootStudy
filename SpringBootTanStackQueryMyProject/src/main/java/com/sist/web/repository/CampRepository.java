@@ -38,6 +38,9 @@ public int getCno();
 @Repository
 public interface CampRepository extends JpaRepository<CampEntity, Integer>{
 	@Query(value = "SELECT cno,title,poster,intro,donm,managesttus,hit,rcount,price "
+			+ "FROM camp ORDER BY rand() LIMIT 0,8 ",nativeQuery = true)
+	public List<CampListVO> mainCampData();
+	@Query(value = "SELECT cno,title,poster,intro,donm,managesttus,hit,rcount,price "
 			+ "FROM camp ORDER BY cno LIMIT :start,:rows",nativeQuery = true)
 	public List<CampListVO> campListData(@Param("start") Integer start,@Param("rows") Integer rows);
 	

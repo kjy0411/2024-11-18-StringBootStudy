@@ -21,4 +21,6 @@ public interface CommentRepository extends JpaRepository<CommentEntity, Integer>
 	public int MaxNo();
 	
 	public CommentEntity findByNo(int no);
+	
+	public List<CommentEntity> findByTypeAndBno(int type,int no);
 }
